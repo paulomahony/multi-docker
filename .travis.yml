@@ -24,3 +24,5 @@ after_success:
   - docker push paulom77/multi-nginx
   - docker push paulom77/multi-server
   - docker push paulom77/multi-worker
+  # try this one again, does not seem to go up the first time
+  - docker push paulom77/multi-client
