@@ -13,16 +13,14 @@ script:
     
 after_success:
   # Build docker images
-  - docker build -t paulom77/multi-client ./client 
   - docker build -t paulom77/multi-nginx ./nginx 
   - docker build -t paulom77/multi-server ./server 
   - docker build -t paulom77/multi-worker ./worker
+  - docker build -t paulom77/multi-client ./client
   # Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push to docker hub
-  - docker push paulom77/multi-client
   - docker push paulom77/multi-nginx
   - docker push paulom77/multi-server
   - docker push paulom77/multi-worker
-  # try this one again, does not seem to go up the first time
   - docker push paulom77/multi-client
