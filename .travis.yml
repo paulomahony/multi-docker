@@ -17,10 +17,8 @@ after_success:
   - docker build -t paulom77/multi-nginx ./nginx 
   - docker build -t paulom77/multi-server ./server 
   - docker build -t paulom77/multi-worker ./worker
-
   # Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
   # Take those images and push to docker hub
   - docker push paulom77/multi-client
   - docker push paulom77/multi-nginx
